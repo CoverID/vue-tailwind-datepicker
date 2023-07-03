@@ -13,7 +13,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat'
 import isToday from 'dayjs/plugin/isToday'
 import isBetween from 'dayjs/plugin/isBetween'
 import duration from 'dayjs/plugin/duration'
-import { ref, reactive, computed, provide, nextTick, isProxy, watchEffect, watch, unref } from 'vue'
+import { ref, reactive, computed, provide, nextTick, isProxy, watchEffect, watch, unref, toRefs } from 'vue'
 import useDate from './composables/date'
 import useDom from './composables/dom'
 
@@ -124,12 +124,13 @@ const emit = defineEmits([
   'click:right:prev',
   'click:right:next'
 ])
+const { modelValue } = toRefs(props);
 const VtdRef = ref(null)
 const VtdInputRef = ref(null)
 const placement = ref(null)
 const givenPlaceholder = ref('')
 const selection = ref(null)
-const pickerValue = ref('')
+const pickerValue = computed(() => modelValue.value);
 const hoverValue = ref([])
 const applyValue = ref([])
 const previous = ref(null)
