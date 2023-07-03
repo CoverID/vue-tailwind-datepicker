@@ -132,6 +132,7 @@ const givenPlaceholder = ref('')
 const selection = ref(null)
 const pickerValue = ref('')
 watch(modelValue, (val) => {
+  console.log("Value changes:", val)
   pickerValue.value = val;
 })
 const hoverValue = ref([])
