@@ -131,10 +131,6 @@ const placement = ref(null)
 const givenPlaceholder = ref('')
 const selection = ref(null)
 const pickerValue = ref('')
-watch(modelValue, (val) => {
-  console.log("Value changes:", val)
-  pickerValue.value = val;
-})
 const hoverValue = ref([])
 const applyValue = ref([])
 const previous = ref(null)
@@ -455,7 +451,7 @@ const clearPicker = () => {
   applyValue.value = []
   VtdInputRef.value && VtdInputRef.value.focus()
 }
-defineExpose({clearPicker})
+defineExpose({ clearPicker })
 
 /**
  * keyUp event
@@ -1278,6 +1274,10 @@ provide('setToLastDay', setToLastDay)
 provide('setToThisMonth', setToThisMonth)
 provide('setToLastMonth', setToLastMonth)
 provide('setToCustomShortcut', setToCustomShortcut)
+
+watch(modelValue, (val) => {
+  pickerValue.value = val
+})
 </script>
 
 <template>
@@ -1304,9 +1304,7 @@ provide('setToCustomShortcut', setToCustomShortcut)
           :placeholder="givenPlaceholder"
           @keyup="keyUp"
         />
-        <div
-          class="absolute inset-y-0 right-0 inline-flex items-center rounded-md overflow-hidden"
-        >
+        <div class="absolute inset-y-0 right-0 inline-flex items-center rounded-md overflow-hidden">
           <button
             type="button"
             :disabled="props.disabled"
@@ -1434,9 +1432,7 @@ provide('setToCustomShortcut', setToCustomShortcut)
                 </div>
               </div>
               <div v-if="!props.autoApply">
-                <div
-                  class="mt-2 mx-2 py-1.5 border-t border-black/[.1] dark:border-vtd-secondary-700/[1]"
-                >
+                <div class="mt-2 mx-2 py-1.5 border-t border-black/[.1] dark:border-vtd-secondary-700/[1]">
                   <div class="mt-1.5 sm:flex sm:flex-row-reverse">
                     <button
                       type="button"
@@ -1455,9 +1451,7 @@ provide('setToCustomShortcut', setToCustomShortcut)
                 </div>
               </div>
               <div v-else class="sm:hidden">
-                <div
-                  class="mt-2 mx-2 py-1.5 border-t border-black/[.1] dark:border-vtd-secondary-700/[1]"
-                >
+                <div class="mt-2 mx-2 py-1.5 border-t border-black/[.1] dark:border-vtd-secondary-700/[1]">
                   <div class="mt-1.5 sm:flex sm:flex-row-reverse">
                     <button
                       type="button"
