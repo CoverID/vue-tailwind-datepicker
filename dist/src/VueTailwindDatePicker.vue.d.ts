@@ -132,6 +132,7 @@ declare namespace _sfc_main {
         useVisibleViewport: (el: any) => boolean;
         props: any;
         emit: any;
+        modelValue: import("vue").Ref<any>;
         VtdRef: any;
         VtdInputRef: any;
         placement: any;
@@ -447,6 +448,7 @@ declare namespace _sfc_main {
         watchEffect: typeof watchEffect;
         watch: typeof watch;
         unref: typeof unref;
+        toRefs: typeof toRefs;
         readonly useDate: typeof useDate;
         readonly useDom: typeof useDom;
     };
@@ -477,6 +479,7 @@ declare namespace _sfc_main {
         useVisibleViewport: (el: any) => boolean;
         props: any;
         emit: any;
+        modelValue: import("vue").Ref<any>;
         VtdRef: any;
         VtdInputRef: any;
         placement: any;
@@ -792,6 +795,7 @@ declare namespace _sfc_main {
         watchEffect: typeof watchEffect;
         watch: typeof watch;
         unref: typeof unref;
+        toRefs: typeof toRefs;
         readonly useDate: typeof useDate;
         readonly useDom: typeof useDom;
     };
@@ -804,5 +808,6 @@ import { isProxy } from "@vue/runtime-core";
 import { watchEffect } from "@vue/runtime-core";
 import { watch } from "@vue/runtime-core";
 import { unref } from "@vue/runtime-core";
+import { toRefs } from "@vue/runtime-core";
 import useDate from "./composables/date";
 import useDom from "./composables/dom";

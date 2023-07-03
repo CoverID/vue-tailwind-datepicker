@@ -104,6 +104,7 @@ declare const _default: {
         useVisibleViewport: (el: any) => boolean;
         props: any;
         emit: any;
+        modelValue: import("vue").Ref<any>;
         VtdRef: any;
         VtdInputRef: any;
         placement: any;
@@ -419,6 +420,7 @@ declare const _default: {
         watchEffect: typeof import("vue").watchEffect;
         watch: typeof import("vue").watch;
         unref: typeof import("vue").unref;
+        toRefs: typeof import("vue").toRefs;
         readonly useDate: typeof import("./composables/date").default;
         readonly useDom: typeof import("./composables/dom").default;
     };
