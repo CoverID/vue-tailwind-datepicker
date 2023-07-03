@@ -124,13 +124,16 @@ const emit = defineEmits([
   'click:right:prev',
   'click:right:next'
 ])
-const { modelValue } = toRefs(props);
+const { modelValue } = toRefs(props)
 const VtdRef = ref(null)
 const VtdInputRef = ref(null)
 const placement = ref(null)
 const givenPlaceholder = ref('')
 const selection = ref(null)
-const pickerValue = computed(() => modelValue.value);
+const pickerValue = ref('')
+watch(modelValue, (val) => {
+  pickerValue.value = val;
+})
 const hoverValue = ref([])
 const applyValue = ref([])
 const previous = ref(null)
